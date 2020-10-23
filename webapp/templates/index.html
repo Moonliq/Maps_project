@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <title>{{ page_title }}</title>
+    <head>
+      <title>Карта регионов России</title>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <style>
+          html, body, #map {
+              width: 100%;
+              height: 100%;
+              padding: 0;
+              margin: 0;
+          }
+          #map {
+            width: 100%;
+          }
+          button {
+                background: gray;
+                border-radius: 12px;
+                color: white;
+            }
+      </style>
+  </head><body>
+    <!-- <form action="https://www.mos.ru/city/projects/covid-19/">
+      <label for="cars">Choose layer:</label>
+      <select id="cars" name="cars">
+        <option value="b 1">Москва - коронавирус</option>
+      </select>
+      <input type="submit">
+    </form> -->
+
+    <div class="dropdown navbar-nav mr-auto">
+      <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Слои</button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="/">Главная</a>
+          <a class="dropdown-item" href="/layer/">Республики России</a>
+      </div>
+    </div>
+    
+
+  <div id="map">
+  </div>
+
+  <script type="text/javascript">
+    var districtColors = {
+      {% for name, color in districts.items() %}
+      {{name}}: '{{color}}',
+      {% endfor %}
+  };
+  </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <!--
+      Укажите свой API-ключ. Тестовый ключ НЕ БУДЕТ работать на других сайтах.
+      Получить ключ можно в Кабинете разработчика: https://developer.tech.yandex.ru/keys/
+    -->
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=<a19b23e7-fe7f-4aaa-823d-92ef1050c496>" type="text/javascript"></script>
+    <script src="/static/js/data.js" type="text/javascript"></script>
+    <script src="/static/js/regions_districts.js" type="text/javascript"></script>
+  </body>
+</html>

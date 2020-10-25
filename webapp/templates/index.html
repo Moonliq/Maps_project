@@ -26,25 +26,19 @@
                 background: gray;
                 border-radius: 12px;
                 color: white;
-            }
+          }
       </style>
-  </head><body>
-    <!-- <form action="https://www.mos.ru/city/projects/covid-19/">
-      <label for="cars">Choose layer:</label>
-      <select id="cars" name="cars">
-        <option value="b 1">Москва - коронавирус</option>
-      </select>
-      <input type="submit">
-    </form> -->
+  </head>
+  <body>
+    {% include 'menu.html' %}
 
-    <div class="dropdown navbar-nav mr-auto">
-      <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Слои</button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="/">Главная</a>
-          <a class="dropdown-item" href="/layer/">Республики России</a>
-      </div>
+  <!-- <div class="dropdown navbar-nav mr-auto">
+    <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Слои</button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="/">Главная</a>
+        <a class="dropdown-item" href="/layer/">Республики России</a>
     </div>
-    
+  </div> -->
 
   <div id="map">
   </div>
@@ -54,7 +48,7 @@
       {% for name, color in districts.items() %}
       {{name}}: '{{color}}',
       {% endfor %}
-  };
+    };
   </script>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

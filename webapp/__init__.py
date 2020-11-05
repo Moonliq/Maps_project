@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-from webapp.districts_data import type_of_region, region_borders
+from webapp.districts_data import type_of_region, region_borders, region_gender
 
 def create_app():
   app = Flask(__name__)# pass the name of the current file
@@ -18,5 +18,12 @@ def create_app():
       districts = type_of_region()
       
       return render_template('index.html', page_title = title, districts=districts)# handle html and its variables
+
+  @app.route('/by_gender/') # decorator
+  def layer2():#function name is view
+      title = "Statistics by gender"
+      districts = region_gender()
+      
+      return render_template('index.html', page_title = title, districts=districts)  
   return app
   

@@ -21,3 +21,11 @@ def region_borders():
         region_list[region_var] = '#48C9B0'
     region_list.pop('Region code')
     return region_list
+
+def region_names():
+    for region in range(sheet.nrows):
+        region_var = sheet.cell(region,1).value
+        region_name = sheet.cell(region,0).value
+        region_list[region_var] = region_name
+    region_list.pop('Region code')
+    return region_list

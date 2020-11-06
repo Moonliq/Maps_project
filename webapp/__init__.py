@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-from webapp.districts_data import type_of_region, region_borders, region_gender
+from webapp.districts_data import type_of_region, region_borders, region_gender, region_covid
 
 def create_app():
   app = Flask(__name__)# pass the name of the current file
@@ -19,11 +19,19 @@ def create_app():
       
       return render_template('index.html', page_title = title, districts=districts)# handle html and its variables
 
+  @app.route('/covid/') # decorator
+  def layer3():#function name is view
+      title = "Statistics by Covid cases"
+      districts = region_covid()
+      
+      return render_template('index.html', page_title = title, districts=districts)
+
   @app.route('/by_gender/') # decorator
   def layer2():#function name is view
       title = "Statistics by gender"
       districts = region_gender()
       
-      return render_template('index.html', page_title = title, districts=districts)  
+      return render_template('index.html', page_title = title, districts=districts)
+  
   return app
   

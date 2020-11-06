@@ -70,3 +70,14 @@ def region_gender():
 
     region_list.pop('Region code')
     return region_list
+
+
+def region_covid():
+    with open('webapp/covid2.csv', 'r', encoding='utf-8') as f:
+        reader = csv.DictReader(f, delimiter=',')
+        for row in reader:
+            result = row["ColorOrder"]
+            code = row["Region code"]
+            region_list[code] = result.upper()
+        
+    return region_list
